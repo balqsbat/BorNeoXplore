@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About | BorNeoXplore</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f5f7f6;
+    color:#333;
+}
+
+/* ===== FIX HEADER SEBARIS ===== */
+.header-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav ul{
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+nav ul{
+    list-style:none;
+    display:flex;
+    align-items:center;
+    margin:0;
+    padding:0;
+}
+
+/* ===== HEADER ===== */
+header{
+    background:linear-gradient(90deg,#0b3d2e,#146b52);
+    padding:20px;
+    color:white;
+}
+
+.logo-container{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+}
+
+.logo-img{
+    width:100px;
+}
+
+.logo-text p{
+    font-size:14px;
+}
+
+/* ===== HEADER KEMAS ===== */
+header{
+    padding:20px 60px;
+}
+
+.logo-text h1{
+    font-size:22px;
+    margin:0;
+}
+
+.logo-text p{
+    font-size:13px;
+    margin:0;
+    opacity:0.85;
+}
+
+nav ul li a{
+    font-size:14px;
+}
+
+/* ===== STICKY HEADER ===== */
+.main-header{
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
+
+/* ===== NAV ===== */
+
+nav ul li{
+    position:relative;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    padding:10px 18px;
+    display:block;
+}
+
+nav ul li a:hover{
+    background:rgba(255,255,255,0.15);
+    border-radius:20px;
+}
+
+.dropdown{
+    position:absolute;
+    top:45px;
+    left:0;
+    background:rgba(20,107,82,0.97);
+    min-width:180px;
+    border-radius:14px;
+    z-index:999;
+
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(10px);
+    transition:all 0.3s ease;
+}
+nav ul li:hover .dropdown{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
+.dropdown li a{
+    padding:12px 18px;
+    font-size:14px;
+}
+
+.dropdown li a:hover{
+    background:rgba(255,255,255,0.15);
+    border-radius:12px;
+}
+
+/* ===== LOGO SECTION ===== */
+.logo-section {
+  padding: 60px 20px;
+  background: white;
+  text-align: center;
+}
+
+.logo-box {
+  max-width: 800px;
+  margin: auto;
+}
+
+.logo-box img {
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+.logo-box h2 {
+  color: #1d3557;
+}
+
+.logo-box p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #444;
+}
+
+/* ===== ORGANIZATION CHART ===== */
+.org-section {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #eef6ff, #ffffff);
+  text-align: center;
+}
+
+.org-container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.org-card {
+  background: white;
+  border-radius: 22px;
+  padding: 35px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  transition: all 0.4s ease;
+}
+
+.org-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow:
+    0 0 30px rgba(77,171,247,0.75),
+    0 35px 70px rgba(0,0,0,0.35);
+}
+
+.org-card h2 {
+  color: #1d3557;
+  margin-bottom: 15px;
+}
+
+.org-card p {
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+.org-card img {
+  width: 100%;
+  max-width: 650px;
+  border-radius: 14px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+/* ===== MAP SECTION ===== */
+.map-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.map-wrapper {
+  position: relative;
+  max-width: 950px;
+  margin: auto;
+}
+
+.map-wrapper img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+
+.map-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+/* HOTSPOT */
+.area {
+  fill: rgba(77, 171, 247, 0.35);
+  stroke: rgba(255,255,255,0.9);
+  stroke-width: 2;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.area:hover {
+  fill: rgba(77, 171, 247, 0.7);
+  filter: drop-shadow(0 0 18px rgba(0,0,0,0.6));
+  transform: scale(1.015);
+}
+
+/* LABEL */
+.label {
+  fill: white;
+  font-size: 26px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+  pointer-events: none;
+}
+
+/* INFO PANEL */
+.info-panel {
+  display: none;
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  width: 90%;
+  max-width: 520px;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.45);
+  text-align: left;
+  animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+  from {opacity: 0; transform: translate(-50%, 30px);}
+  to {opacity: 1; transform: translate(-50%, 0);}
+}
+
+.info-panel h3 {
+  margin-top: 0;
+  color: #1d3557;
+}
+
+.close-btn {
+  background: #1d3557;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ===== EXPLORE ===== */
+.explore-more{
+    text-align:center;
+    padding:70px 10%;
+    background:#f0f7f4;
+}
+
+.explore-more a{
+    display:inline-block;
+    margin:15px;
+    padding:12px 30px;
+    background:#146b52;
+    color:white;
+    border-radius:30px;
+    text-decoration:none;
+}
+
+.explore-more a:hover{
+    background:#0b3d2e;
+}
+
+/* ===== FOOTER ===== */
+footer{
+    background:#0b3d2e;
+    color:white;
+    text-align:center;
+    padding:25px;
+    font-size:14px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+    .highlights{
+        flex-direction:column;
+    }
+    .card{
+        width:100%;
+    }
+}
+.music-btn{
+    position:absolute;
+    bottom:30px;
+    left:50%;
+    transform:translateX(-50%);
+    padding:10px 22px;
+    border:none;
+    border-radius:30px;
+    background:rgba(0,0,0,0.6);
+    color:white;
+    font-family:'Poppins',sans-serif;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.music-btn:hover{
+    background:#146b52;
+}
+#topBtn{
+    display:none;
+    position:fixed;
+    bottom:40px;
+    right:30px;
+    z-index:999;
+    border:none;
+    outline:none;
+    background:#146b52;
+    color:white;
+    cursor:pointer;
+    padding:12px 16px;
+    border-radius:50%;
+    font-size:18px;
+    box-shadow:0 6px 15px rgba(0,0,0,0.3);
+}
+
+#topBtn:hover{
+    background:#0b3d2e;
+}
+
+/* ===== FLOATING ANNOUNCEMENT ===== */
+.floating-announcement{
+    position:fixed;
+    bottom:120px;
+    left:20px;
+    width:260px;
+    background:white;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    z-index:1000;
+    font-size:14px;
+    animation: floatIn 1s ease;
+}
+
+.announcement-header{
+    background:#146b52;
+    color:white;
+    padding:10px 15px;
+    border-radius:18px 18px 0 0;
+    font-weight:600;
+}
+
+.announcement-body{
+    padding:15px;
+    color:#333;
+    line-height:1.5;
+}
+
+.close-btn{
+    position:absolute;
+    top:8px;
+    right:12px;
+    cursor:pointer;
+    color:white;
+    font-size:18px;
+}
+
+@keyframes floatIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+</style>
+</head>
+
+<body>
+<audio id="bgMusic" loop>
+    <source src="music/lagu1.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ===== HEADER ===== -->
+<header class="main-header">
+  <div class="header-inner">
+
+    <!-- LOGO -->
+    <div class="logo-container">
+      <a href="index.html"><img src="images/logo2.png" alt="BorNeoXplore" class="logo-img"></a>
+      <div class="logo-text">
+        <h1>BorNeoXplore</h1>
+        <p>Discover Culture, Nature & Heritage</p>
+      </div>
+    </div>
+
+    <!-- NAV -->
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+
+        <li>
+          <a href="about.html">About</a>
+          <ul class="dropdown">
+            <li><a href="about.html#logo">Logo</a></li>
+            <li><a href="about.html#org">Organization Chart</a></li>
+            <li><a href="about.html#map">Interactive Maps</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="sabah.html">Sabah</a>
+          <ul class="dropdown">
+            <li><a href="sabah.html#background">Culture</a></li>
+            <li><a href="sabah.html#people">People</a></li>
+            <li><a href="sabah.html#nature">Nature</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="sarawak.html">Sarawak</a>
+          <ul class="dropdown">
+            <li><a href="sarawak.html#background">Culture</a></li>
+            <li><a href="sarawak.html#people">People</a></li>
+            <li><a href="sarawak.html#nature">Nature</a></li>
+          </ul>
+        </li>
+
+        <li><a href="food.html">Food</a></li>
+        <li><a href="event.html">Event</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- LOGO -->
+<section class="logo-section" id="logo">
+  <div class="logo-box">
+    <img src="images/logo2.png" alt="Corporate Logo">
+    <h2>BorNeoXplore Corporation</h2>
+    <p>
+BorNeoXplore is more than just a tourism website — it is a digital journey into the heart of Malaysian Borneo. 
+Born from a passion to celebrate Sabah and Sarawak, this platform highlights the stories, traditions, flavors, 
+and landscapes that make Borneo truly unforgettable.
+<br><br>
+From misty mountains and ancient rainforests to vibrant cultures and welcoming communities, 
+BorNeoXplore invites visitors to explore, learn, and fall in love with the wonders of Sabah and Sarawak. 
+Whether you are a traveler, student, or culture enthusiast, this site serves as your gateway 
+to discovering Borneo beyond the ordinary.
+</p>
+  </div>
+</section>
+
+<section class="logo-section">
+  <div class="logo-box">
+    <h2>Our Vision & Mission</h2>
+    <p>
+      <strong>Vision</strong><br>
+      To become a leading digital platform that preserves, promotes, and celebrates the cultural and natural heritage of Borneo.
+      <br><br>
+      <strong>Mission</strong><br>
+      • To introduce Sabah and Sarawak to a global audience through engaging digital content.<br>
+      • To educate visitors about Borneo’s culture, people, and nature.<br>
+      • To inspire sustainable and responsible tourism across Malaysian Borneo.
+    </p>
+  </div>
+</section>
+
+<!-- ORGANIZATION CHART -->
+<section class="org-section" id="org">
+  <div class="org-container">
+    <div class="org-card">
+      <h2>Our Organizational Structure</h2>
+	<p>
+	Our organizational structure reflects a collaborative effort dedicated to promoting Borneo tourism. Each department plays a vital role — from content development and cultural research to digital design and visitor engagement — ensuring that BorNeoXplore delivers accurate, meaningful, and inspiring information to users.
+	</p>
+
+      <img src="images/org_chart.jpg" alt="Organization Chart">
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="map-section" id="map">
+<h2>Interactive Map of Sabah & Sarawak</h2>
+<p>
+Hover, click, and explore! Select Sabah or Sarawak to uncover their unique identity, 
+famous attractions, and cultural highlights that make each state special.
+</p>
+
+<div class="map-wrapper">
+  <img src="images/sabsar.jpg" alt="Map of Sabah and Sarawak">
+
+  <svg class="map-overlay" viewBox="0 0 1000 500">
+
+    <polygon class="area" onclick="showSarawak()"
+      points="120,350 200,300 320,290 420,260 520,290 560,330 500,380 380,410 260,420 160,390" />
+
+    <polygon class="area" onclick="showSabah()"
+      points="600,230 680,200 780,230 850,290 820,330 720,320 650,280" />
+
+    <text x="300" y="335" class="label">SARAWAK</text>
+    <text x="700" y="265" class="label">SABAH</text>
+  </svg>
+
+  <div id="infoPanel" class="info-panel">
+    <h3 id="infoTitle"></h3>
+    <p id="infoText"></p>
+    <ul id="infoList"></ul>
+    <button class="close-btn" onclick="closeInfo()">Close</button>
+  </div>
+</div>
+</section>
+
+<script>
+const panel = document.getElementById("infoPanel");
+const title = document.getElementById("infoTitle");
+const text = document.getElementById("infoText");
+const list = document.getElementById("infoList");
+
+function showSabah() {
+  title.innerText = "Sabah – The Land Below the Wind";
+  text.innerText = "Sabah is renowned for breathtaking landscapes, rich indigenous cultures, and diverse marine life.";
+  list.innerHTML = `
+    <li><strong>Capital:</strong> Kota Kinabalu</li>
+    <li><strong>Ethnic groups:</strong> Kadazan-Dusun, Bajau, Murut</li>
+    <li><strong>Did you know?</strong> Mount Kinabalu is one of the youngest mountains in the world and a UNESCO World Heritage Site.</li>
+  `;
+  panel.style.display = "block";
+}
+
+function showSarawak() {
+  title.innerText = "Sarawak – Land of the Hornbills";
+  text.innerText = "Sarawak is known for its rainforests and cultural heritage.";
+  list.innerHTML = `
+    <li><strong>Capital:</strong> Kuching</li>
+    <li><strong>Ethnic groups:</strong> Iban, Bidayuh, Orang Ulu</li>
+    <li><strong>Did you know?</strong> Jong’s Crocodile Farm, Niah Caves – 
+   Popular attractions featuring wildlife conservation and one of Southeast Asia’s 
+   most important prehistoric archaeological sites.</li>
+
+  `;
+  panel.style.display = "block";
+}
+
+function closeInfo() {
+  panel.style.display = "none";
+}
+
+/* ===== BACK TO TOP ===== */
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll", function(){
+    if(document.documentElement.scrollTop > 300){
+        topBtn.style.display = "block";
+    }else{
+        topBtn.style.display = "none";
+    }
+});
+
+topBtn.addEventListener("click", function(){
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+function closeAnnouncement(){
+    document.getElementById("floatingNote").style.display = "none";
+}
+
+</script>
+
+<section class="explore-more">
+    <h2>Ready to Explore Borneo?</h2>
+    <p>Discover culture, people and nature across Sabah & Sarawak.</p>
+    <a href="sabah.html">Explore Sabah</a>
+    <a href="sarawak.html">Explore Sarawak</a>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <p>© 2026 BorNeoXplore. All Rights Reserved.</p>
+    <p>Recommended Browser: Google Chrome | Resolution: 1366 x 768</p>
+    <p>Last Updated: January 2026</p>
+</footer>
+
+<!-- ===== BACK TO TOP BUTTON ===== -->
+<button id="topBtn" title="Go to top">⬆</button>
+
+<!-- ===== FLOATING ANNOUNCEMENT ===== -->
+<div class="floating-announcement" id="floatingNote">
+    <div class="announcement-header">
+        Bah Aok Borneo 🌿
+        <span class="close-btn" onclick="closeAnnouncement()">×</span>
+    </div>
+    <div class="announcement-body">
+        “Mari ramai-ramai uli Borneo, banyak tempat ngagai, makan pun sedap nyamai!”
+    </div>
+</div>
+
+</body>
+</html>

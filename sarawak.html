@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sarawak | BorNeoXplore</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f5f7f6;
+    color:#333;
+}
+
+/* ===== FIX HEADER SEBARIS ===== */
+.header-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    align-items:center;
+    margin:0;
+    padding:0;
+}
+
+/* ===== HEADER ===== */
+header{
+    background:linear-gradient(90deg,#0b3d2e,#146b52);
+    padding:20px;
+    color:white;
+}
+
+.logo-container{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+}
+
+.logo-img{
+    width:100px;
+}
+
+.logo-text p{
+    font-size:14px;
+}
+
+/* ===== HEADER KEMAS ===== */
+header{
+    padding:20px 60px;
+}
+
+.logo-text h1{
+    font-size:22px;
+    margin:0;
+}
+
+.logo-text p{
+    font-size:13px;
+    margin:0;
+    opacity:0.85;
+}
+
+nav ul li a{
+    font-size:14px;
+}
+
+/* ===== STICKY HEADER ===== */
+.main-header{
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
+
+/* ===== NAV ===== */
+
+nav ul li{
+    position:relative;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    padding:10px 18px;
+    display:block;
+}
+
+nav ul li a:hover{
+    background:rgba(255,255,255,0.15);
+    border-radius:20px;
+}
+
+.dropdown{
+    position:absolute;
+    top:45px;
+    left:0;
+    background:rgba(20,107,82,0.97);
+    min-width:180px;
+    border-radius:14px;
+    z-index:999;
+
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(10px);
+    transition:all 0.3s ease;
+}
+nav ul li:hover .dropdown{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
+.dropdown li a{
+    padding:12px 18px;
+    font-size:14px;
+}
+
+.dropdown li a:hover{
+    background:rgba(255,255,255,0.15);
+    border-radius:12px;
+}
+
+/* ===== HERO ===== */
+.sarawak-hero{
+    min-height:85vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),
+    url("images/sarawak-bg.jpg");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    animation:bgZoom 18s infinite alternate;
+}
+
+@keyframes bgZoom{
+    from{background-size:100%;}
+    to{background-size:110%;}
+}
+
+.hero-content{
+    animation:fadeUp 1.5s ease forwards;
+}
+
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(40px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+.hero-title{
+    font-size:60px;
+    letter-spacing:3px;
+}
+
+.hero-subtitle{
+    font-size:22px;
+    margin-top:10px;
+    opacity:0;
+    animation:fadeUp 1.5s ease forwards;
+    animation-delay:0.5s;
+}
+
+.hero-btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:12px 28px;
+    border-radius:30px;
+    background:#146b52;
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+    letter-spacing:1px;
+    transition:0.3s;
+}
+
+.hero-btn:hover{
+    background:#0b3d2e;
+    transform:translateY(-3px);
+}
+
+/* ===== SECTION ===== */
+.sarawak-section{
+    padding:70px 8%;
+}
+
+.sarawak-section h3{
+    text-align:center;
+    font-size:30px;
+    color:#146b52;
+    margin-bottom:50px;
+}
+
+.sarawak-section h3::after{
+    content:"";
+    width:80px;
+    height:4px;
+    background:#146b52;
+    display:block;
+    margin:14px auto;
+    border-radius:5px;
+}
+
+/* ===== GRID ===== */
+.sarawak-cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+    max-width:1100px;
+    margin:auto;
+}
+
+.sarawak-card{
+    background:white;
+    padding:22px;
+    border-radius:22px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+    transition:0.4s;
+    opacity:0;
+    transform:translateY(40px);
+}
+
+.sarawak-card.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.sarawak-card:hover{
+    transform:translateY(-8px);
+}
+
+.sarawak-card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:14px;
+    margin-bottom:15px;
+}
+
+.sarawak-card h4{
+    color:#0b3d2e;
+    margin-bottom:6px;
+}
+
+/* BACKGROUND GRADIENT */
+#culture{background:linear-gradient(#f5f7f6,#eef6f2);}
+#people{background:linear-gradient(#eef6f2,#ffffff);}
+#nature{background:linear-gradient(#ffffff,#eef6f2);}
+
+
+/* ===== FOOTER ===== */
+footer{
+    background:#0b3d2e;
+    color:white;
+    text-align:center;
+    padding:25px;
+    font-size:14px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+    .highlights{
+        flex-direction:column;
+    }
+    .card{
+        width:100%;
+    }
+}
+.music-btn{
+    position:absolute;
+    bottom:30px;
+    left:50%;
+    transform:translateX(-50%);
+    padding:10px 22px;
+    border:none;
+    border-radius:30px;
+    background:rgba(0,0,0,0.6);
+    color:white;
+    font-family:'Poppins',sans-serif;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.music-btn:hover{
+    background:#146b52;
+}
+#topBtn{
+    display:none;
+    position:fixed;
+    bottom:40px;
+    right:30px;
+    z-index:999;
+    border:none;
+    outline:none;
+    background:#146b52;
+    color:white;
+    cursor:pointer;
+    padding:12px 16px;
+    border-radius:50%;
+    font-size:18px;
+    box-shadow:0 6px 15px rgba(0,0,0,0.3);
+}
+
+#topBtn:hover{
+    background:#0b3d2e;
+}
+
+/* ===== FLOATING ANNOUNCEMENT ===== */
+.floating-announcement{
+    position:fixed;
+    bottom:120px;
+    left:20px;
+    width:260px;
+    background:white;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    z-index:1000;
+    font-size:14px;
+    animation: floatIn 1s ease;
+}
+
+.announcement-header{
+    background:#146b52;
+    color:white;
+    padding:10px 15px;
+    border-radius:18px 18px 0 0;
+    font-weight:600;
+}
+
+.announcement-body{
+    padding:15px;
+    color:#333;
+    line-height:1.5;
+}
+
+.close-btn{
+    position:absolute;
+    top:8px;
+    right:12px;
+    cursor:pointer;
+    color:white;
+    font-size:18px;
+}
+
+@keyframes floatIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ===== RESPONSIVE HEADER ===== */
+@media (max-width: 768px){
+
+    .header-inner{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo-container{
+        margin-bottom: 10px;
+    }
+
+    .nav-menu{
+        width:100%;
+        flex-wrap:wrap;
+    }
+
+    .nav-menu li{
+        width:100%;
+    }
+
+    .nav-menu li a{
+        padding:12px;
+        white-space: normal; /* ✔ betul */
+    }
+}
+
+@media(max-width:600px){
+    .hero-title{
+        font-size:40px;
+    }
+    .hero-subtitle{
+        font-size:18px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="main-header">
+  <div class="header-inner">
+
+    <!-- LOGO -->
+    <div class="logo-container">
+      <a href="index.html"><img src="images/logo2.png" alt="BorNeoXplore" class="logo-img"></a>
+      <div class="logo-text">
+        <h1>BorNeoXplore</h1>
+        <p>Discover Culture, Nature & Heritage</p>
+      </div>
+    </div>
+
+    <!-- NAV -->
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+
+        <li>
+          <a href="about.html">About</a>
+          <ul class="dropdown">
+            <li><a href="about.html#logo">Logo</a></li>
+            <li><a href="about.html#org">Organization Chart</a></li>
+            <li><a href="about.html#map">Interactive Maps</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="sabah.html">Sabah</a>
+          <ul class="dropdown">
+            <li><a href="sabah.html#background">Culture</a></li>
+            <li><a href="sabah.html#people">People</a></li>
+            <li><a href="sabah.html#nature">Nature</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="sarawak.html">Sarawak</a>
+          <ul class="dropdown">
+            <li><a href="sarawak.html#culture">Culture</a></li>
+            <li><a href="sarawak.html#people">People</a></li>
+            <li><a href="sarawak.html#nature">Nature</a></li>
+          </ul>
+
+        </li>
+
+        <li>
+          <a href="food.html">Food</a>
+        </li>
+
+        <li><a href="event.html">Event</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="sarawak-hero">
+<div class="hero-content">
+<h2 class="hero-title">Feel Sarawak</h2>
+<p class="hero-subtitle">Culture • People • Nature</p>
+<a href="#culture" class="hero-btn">Start Exploring</a>
+</div>
+</section>
+
+<!-- ===== CULTURE ===== -->
+<section class="sarawak-section" id="culture">
+<h3>🪶 Culture & Heritage</h3>
+
+<div class="sarawak-cards">
+<div class="sarawak-card">
+<img src="images/ngajat.jpg" alt="Ngajat dance of the Iban community">
+<h4>Ngajat Dance</h4>
+<p>Traditional warrior dance of the Iban people.</p>
+</div>
+
+<div class="sarawak-card">
+<img src="images/gawai.jpg" alt="Gawai Dayak">
+<h4>Gawai Dayak</h4>
+<p>Harvest festival celebrated by Dayak communities.</p>
+</div>
+
+<div class="sarawak-card">
+<img src="images/longhouse.jpg" alt="Sarawak's Longhouse">
+<h4>Longhouse</h4>
+<p>Traditional communal living of Sarawak ethnic groups.</p>
+</div>
+</div>
+</section>
+
+<!-- ===== PEOPLE ===== -->
+<section class="sarawak-section" id="people">
+<h3>🧑‍🤝‍🧑 People</h3>
+
+<div class="sarawak-cards">
+<div class="sarawak-card">
+<img src="images/iban.jpg" alt="Iban Sarawak">
+<h4>Iban</h4>
+<p>The largest ethnic group in Sarawak.</p>
+</div>
+
+<div class="sarawak-card">
+<img src="images/bidayuh.jpg" alt="Bidayuh Sarawak">
+<h4>Bidayuh</h4>
+<p>Known for their rich culture and traditional music.</p>
+</div>
+
+<div class="sarawak-card">
+<img src="images/melanau.jpg" alt="Melanau Sarawak">
+<h4>Melanau</h4>
+<p>Famous for sago-based cuisine and traditions.</p>
+</div>
+</div>
+</section>
+
+<!-- ===== NATURE ===== -->
+<section class="sarawak-section" id="nature">
+<h3>🌿 Nature</h3>
+
+<div class="sarawak-cards">
+<div class="sarawak-card">
+<img src="images/mulu.jpg" alt="Gunung Mulu">
+<h4>Gunung Mulu</h4>
+<p>UNESCO World Heritage Site with massive caves.</p>
+</div>
+
+<div class="sarawak-card">
+<img src="images/bako.jpg" alt="Bako">
+<h4>Bako National Park</h4>
+<p>Home to proboscis monkeys and coastal forests.</p>
+</div>
+
+<div class="sarawak-card">
+<img src="images/river.jpg" alt="Sungai Sarawak">
+<h4>Sarawak River</h4>
+<p>Iconic river flowing through Kuching city.</p>
+</div>
+</div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <p>© 2026 BorNeoXplore. All Rights Reserved.</p>
+    <p>Recommended Browser: Google Chrome | Resolution: 1366 x 768</p>
+    <p>Last Updated: January 2026</p>
+</footer>
+
+<!-- ===== BACK TO TOP BUTTON ===== -->
+<button id="topBtn" title="Go to top">⬆</button>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+
+/* ===== BACK TO TOP ===== */
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll", function(){
+    if(document.documentElement.scrollTop > 300){
+        topBtn.style.display = "block";
+    }else{
+        topBtn.style.display = "none";
+    }
+});
+
+topBtn.addEventListener("click", function(){
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
+const cards = document.querySelectorAll('.sarawak-card');
+
+window.addEventListener('scroll', () => {
+    cards.forEach(card => {
+        const top = card.getBoundingClientRect().top;
+        if(top < window.innerHeight - 80){
+            card.classList.add('show');
+        }
+    });
+});
+
+function closeAnnouncement(){
+    document.getElementById("floatingNote").style.display = "none";
+}
+
+</script>
+
+<!-- ===== FLOATING ANNOUNCEMENT ===== -->
+<div class="floating-announcement" id="floatingNote">
+    <div class="announcement-header">
+        Bah Aok Borneo 🌿
+        <span class="close-btn" onclick="closeAnnouncement()">×</span>
+    </div>
+    <div class="announcement-body">
+        “Mari ramai-ramai uli Borneo, banyak tempat ngagai, makan pun sedap nyamai!”
+    </div>
+</div>
+
+</body>
+</html>
